@@ -1,4 +1,4 @@
-# Docker container for MSc Bioinformatics Otter Grader Marking container
+# Docker container for MSc Bioinformatics Otter Grader Marking
 
 ## Instructions
 The Dockerfile here contains the build script for a container which has installed Otter Grader for marking student submissions. It is built on the R 4.0.3 base image, which is itself a Debian based container.
