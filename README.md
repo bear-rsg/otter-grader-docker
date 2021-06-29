@@ -31,8 +31,8 @@ export SINGULARITY_BIND=""
 # singularity shell otter-grader.sif
 singularity shell --contain --bind $PWD:$HOME otter-grader.sif
 
-# OR run the otter software directly:
-# singularity run --contain --bind $PWD:$HOME otter-grader.sif otter
+# OR run the otter software directly (for batch jobs):
+singularity run --contain --bind $PWD:$HOME otter-grader.sif otter
 ```
 
 ## Packages
