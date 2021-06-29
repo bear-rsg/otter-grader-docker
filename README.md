@@ -1,22 +1,29 @@
 # Docker container for MSc Bioinformatics Otter Grader Marking
 
+This repository contains the setup needed for building a Singularity container for using the otter-grader software on a HPC cluster, with isolation from user files but without using Docker on the cluster. It provides Python 3.9 and R 4.0.3.
+
+## Requirements
+
+* Docker (tested with 20.10.7)
+* Singularity (tested with 3.7.4)
+
 ## Instructions
 The Dockerfile here contains the build script for a container which has installed Otter Grader for marking student submissions. It is built on the R 4.0.3 base image, which is itself a Debian based container.
 
-Once built, the Docker container can be turned into a .tar file for Singularity consumption as:
+To build:
 
 ```bash
-# On local machine:
-docker save otter-grader >> otter-grader.tar
-sftp <username>@bluebear.bham.ac.uk <<< $'put otter-grader.tar'
-# On BlueBEAR
-singularity build otter-grader.sif docker-archive://otter-grader.tar
+# Build it locally only:
+make build
+
+# Upload it:
+make upload
+
+# Build and upload to BlueBEAR:
+make
 ```
 
-Alternatively, the container can be pushed to a Docker registry and then pulled down as normal via Singularity:
-```bash
-singularity pull docker://user/otter-grader
-```
+Note that some user input is required because various stages require sudo access and your credentials for BlueBEAR.
 
 On BlueBEAR itself, run as:
 
