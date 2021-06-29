@@ -44,5 +44,5 @@ singularity run --contain --bind $PWD:$HOME otter-grader.sif otter
 
 ## Packages
 
-Packages can be added by adding them to requirements.r (for R) and requirements.txt (for Python). You may need to re-force building as not clear whether Docker will consider the latest layer stale if the requirements.txt has been updated but the Dockerfile has not.
+Packages can be added by adding them to requirements.r (for R) and requirements.txt (for Python).
 
