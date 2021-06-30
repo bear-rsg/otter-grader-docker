@@ -1,4 +1,4 @@
-# Docker container for MSc Bioinformatics Otter Grader Marking
+# Container recipes for MSc Bioinformatics Otter Grader Marking
 
 This repository contains the setup needed for building a Singularity container for using the otter-grader software on a HPC cluster, with isolation from user files but without using Docker on the cluster. It provides Python 3.9 and R 4.0.3.
 
