@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends build-essential
                                                                  libcurl4-gnutls-dev \
                                                                  libxml2-dev \
                                                                  libssl-dev
+
 # installing python libraries
 RUN pip3 install --upgrade pip
 ADD requirements.txt .
@@ -17,6 +18,10 @@ RUN pip3 install -r requirements.txt
 # installing r libraries
 ADD requirements.r .
 RUN Rscript requirements.r
+
+# Add additional image packages that otter-grader assumes
+RUN apt install -y --no-install-recommends pandoc \
+                                           wkhtmltopdf
 
 WORKDIR /submissions
 
